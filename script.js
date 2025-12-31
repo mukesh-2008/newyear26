@@ -66,3 +66,11 @@ setInterval(() => {
 }, 650);
 
 animate();
+const cards = document.querySelectorAll(".card");
+let index = 0;
+
+setInterval(() => {
+  cards.forEach(c => c.classList.remove("active"));
+  index = (index + 1) % cards.length;
+  cards[index].classList.add("active");
+}, 2600);
