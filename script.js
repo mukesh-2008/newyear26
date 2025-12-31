@@ -45,7 +45,17 @@ function burst(x, y) {
   }
 }
 
-function animate() {
+function animate() 
+stars.forEach(star => {
+  star.y += star.s;
+  if (star.y > canvas.height) star.y = 0;
+
+  ctx.beginPath();
+  ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+  ctx.fillStyle = "rgba(255,255,255,0.8)";
+  ctx.fill();
+});
+{
   ctx.fillStyle = "rgba(0,0,0,0.25)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -66,6 +76,7 @@ setInterval(() => {
 }, 650);
 
 animate();
+
 const cards = document.querySelectorAll(".card");
 let index = 0;
 
